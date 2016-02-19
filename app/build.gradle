@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 23
     buildToolsVersion "21.1.2"
 
     defaultConfig {
         applicationId "rild.java_conf.gr.jp.bookmarkonlinkablesticky"
-        minSdkVersion 10
+        minSdkVersion 15
         targetSdkVersion 21
-        versionCode 1
+        versionCode 2
         versionName "1.0"
     }
     buildTypes {
@@ -19,8 +19,28 @@ android {
     }
 }
 
+// Android Annotation version
+def AAVersion = '3.3.2'
+// Android Support Library version
+def SupportLibVersion = '23.1.1'
+// Google Play Service version
+def PlayServiceVersion = '7.8.0'
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+    // Support Library
+    compile "com.android.support:support-v4:$SupportLibVersion"
+    compile "com.android.support:appcompat-v7:$SupportLibVersion"
+    compile "com.android.support:cardview-v7:$SupportLibVersion"
+    compile "com.android.support:design:$SupportLibVersion"
+
+    // Android Annotation
+    compile "org.androidannotations:androidannotations-api:$AAVersion"
+
+    // Google Play Service
+    compile "com.google.android.gms:play-services-gcm:$PlayServiceVersion"
+    compile "com.google.android.gms:play-services-analytics:$PlayServiceVersion"
+
+    // Timber(Log)
+    compile 'com.jakewharton.timber:timber:3.1.0'
 }

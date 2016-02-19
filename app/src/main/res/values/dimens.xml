@@ -12,6 +12,8 @@
     <dimen name="element_spacing_small">4dp</dimen>
     <dimen name="element_spacing_tiny">2dp</dimen>
 
+    <!--sticky-->
+    <dimen name="sticky_margin">3dp</dimen>
     <!--main memu-->
     <dimen name="main_menu_height">72dp</dimen>
 
