@@ -1,13 +1,12 @@
 package rild.java_conf.gr.jp.bookmarkonlinkablesticky.model.entity;
 
-import android.content.Context;
-import android.widget.TextView;
-
+/**
+ * Created by rild on 16/02/20.
+ */
 public class Sticky {
-    public TextView[][] tv_sticky = new TextView[4][2];
-    private Context mContext;
-
-    public Sticky(Context mContext) {
-        this.mContext = mContext;
-    }
+    int colorId;
+    int posX;
+    int posY;
+    String content;
+    String url;
 }

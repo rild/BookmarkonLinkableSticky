@@ -36,7 +36,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import rild.java_conf.gr.jp.bookmarkonlinkablesticky.model.entity.Sticky;
+import rild.java_conf.gr.jp.bookmarkonlinkablesticky.model.entity._Sticky;
 
 
 public class MainActivity extends Activity {
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
 
     int[][] location = new int[4][2];//{{0,50},{0,130},{0,210},{0,290}};//= new int[4][2];//(xn,yn)=(location[n][0],location[n][1])
 
-    Sticky mEditItem = new Sticky(mContext);
+    _Sticky mEditItem = new _Sticky(mContext);
 
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
