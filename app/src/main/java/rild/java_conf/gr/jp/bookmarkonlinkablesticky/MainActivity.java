@@ -36,6 +36,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import rild.java_conf.gr.jp.bookmarkonlinkablesticky.model.entity.Sticky;
+
 
 public class MainActivity extends Activity {
 

@@ -12,6 +12,22 @@
     <dimen name="element_spacing_small">4dp</dimen>
     <dimen name="element_spacing_tiny">2dp</dimen>
 
-    <!--main-->
+    <!--main memu-->
     <dimen name="main_menu_height">72dp</dimen>
+
+    <!--sticky pallet-->
+    <dimen name="sticky_pallet_height">34dp</dimen>
+    <dimen name="sticky_pallet_width">80dp</dimen>
+    <dimen name="sticky_pallet_margin">4dp</dimen>
+    <dimen name="sticky_pallet_margin_left">4dp</dimen>
+    <dimen name="sticky_pallet_margin_right">4dp</dimen>
+    <dimen name="pallet_margin_left">4dp</dimen>
+    <dimen name="pallet_margin_right">4dp</dimen>
+
+    <dimen name="middle_margin">8dp</dimen>
+
+    <!--main menu button-->
+    <dimen name="menu_bottom_height">20dp</dimen>
+    <dimen name="menu_bottom_width">44dp</dimen>
+    <dimen name="bottom_margin">8dp</dimen>
 </resources>
