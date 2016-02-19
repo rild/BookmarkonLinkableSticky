@@ -34,12 +34,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+
 import java.util.List;
 
 import rild.java_conf.gr.jp.bookmarkonlinkablesticky.model.entity._Sticky;
 
 
+@EActivity(R.layout.activity_main)
 public class MainActivity extends Activity {
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     private int mState = 0;
     private int offsetX = 0;// ボタンクリックしたスクリーンのX座標とボタンのX座標の差分
@@ -48,8 +53,19 @@ public class MainActivity extends Activity {
     private final int STATE_DRAG = 1;
     private int aState = 0;//activity State
     private int bState = 0;
+
+    @ViewById(R.id.menu_button_edit)
+    private Button controllButton;
+    @ViewById(R.id.menu_button_clear)
+    private Button clearButton;
+    @ViewById(R.id.menu_button_link)
+    private Button linkButton;
+
+    @ViewById(R.id.menu_button_edit)
     private Button btn_edit;
+    @ViewById(R.id.menu_button_clear)
     private Button btn_ac;
+    @ViewById(R.id.menu_button_link)
     private Button btn_lnk;
     private RelativeLayout mMainLayout;
 
@@ -60,6 +76,15 @@ public class MainActivity extends Activity {
 
     private int[] sticky_number = {0, 0, 0, 0};//sticky_number[0](or[1][2][3])
     private ImageButton imgbtn[] = new ImageButton[4];
+
+    @ViewById(R.id.imageButton_pallet_pink)
+    private ImageButton palletPink;
+    @ViewById(R.id.imageButton_pallet_green)
+    private ImageButton palletGreen;
+    @ViewById(R.id.imageButton_pallet_orange)
+    private ImageButton palletOrange;
+    @ViewById(R.id.imageButton_pallet_blue)
+    private ImageButton palletBlue;
     private LinearLayout[] bg_sticky = new LinearLayout[4];
     private Rect rect = new Rect();
 
@@ -74,10 +99,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btn_edit = (Button) findViewById(R.id.menu_button_edit);
+        btn_ac = (Button) findViewById(R.id.menu_button_clear);
+        btn_lnk = (Button) findViewById(R.id.menu_button_link);
 
-        btn_edit = (Button) findViewById(R.id.edit);
-        btn_ac = (Button) findViewById(R.id.edit4);
-        btn_lnk = (Button) findViewById(R.id.edit3);
         imgbtn[0] = (ImageButton) findViewById(R.id.imageButton_pallet_pink);
         imgbtn[1] = (ImageButton) findViewById(R.id.imageButton_pallet_green);
         imgbtn[2] = (ImageButton) findViewById(R.id.imageButton_pallet_orange);

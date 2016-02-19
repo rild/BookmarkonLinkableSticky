@@ -76,7 +76,7 @@
 
 
             <Button
-                android:id="@+id/edit4"
+                android:id="@+id/menu_button_clear"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/menu_bottom_height"
                 android:layout_gravity="center_horizontal"
@@ -87,7 +87,7 @@
                 android:textSize="12dp" />
 
             <Button
-                android:id="@+id/edit2"
+                android:id="@+id/menu_button_save"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/menu_bottom_height"
                 android:layout_gravity="center_horizontal"
@@ -98,7 +98,7 @@
                 android:textSize="12dp" />
 
             <Button
-                android:id="@+id/edit3"
+                android:id="@+id/menu_button_link"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/menu_bottom_height"
                 android:layout_gravity="center_horizontal"
@@ -109,7 +109,7 @@
                 android:textSize="12dp" />
 
             <Button
-                android:id="@+id/edit"
+                android:id="@+id/menu_button_edit"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/menu_bottom_height"
                 android:layout_gravity="center_horizontal"
