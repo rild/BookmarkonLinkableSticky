@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
@@ -34,7 +35,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import rild.java_conf.gr.jp.bookmarkonlinkablesticky.model.entity.Sticky;
 
@@ -66,6 +72,11 @@ public class MainActivity extends Activity {
     int[][] location = new int[4][2];//{{0,50},{0,130},{0,210},{0,290}};//= new int[4][2];//(xn,yn)=(location[n][0],location[n][1])
 
     Sticky mEditItem = new Sticky(mContext);
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -97,6 +108,9 @@ public class MainActivity extends Activity {
         }
 
         Log.v("showTheState", sticky_number[0] + "," + sticky_number[1] + "," + sticky_number[2] + "," + sticky_number[3]);
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }//onCreate
 
 
@@ -125,16 +139,19 @@ public class MainActivity extends Activity {
     //button1 Changing the State
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void edit(View v) {
+        int color;
         switch (aState) {
             case 0:
                 //編集モードに遷移
-                btn_edit.setBackgroundColor(Color.argb(180, 154, 205, 50));
+                color = getResources().getColor(R.color.menu_button_mode_edit);
+                btn_edit.setBackgroundColor(color);
                 //YellowGreen#9ACD32
                 btn_edit.setText("edit");
 
                 aState = 1;
                 Log.v("edit", "aState became 1");
-                btn_lnk.setBackgroundColor(Color.argb(180, 181, 147, 100));
+                color = getResources().getColor(R.color.menu_button_mode_link_off);
+                btn_lnk.setBackgroundColor(color);
                 //Coral#FF7F50
                 btn_lnk.setText("link");
                 bState = 0;
@@ -142,13 +159,15 @@ public class MainActivity extends Activity {
                 break;
             case 1:
                 //Deleteモードに遷移
-                btn_edit.setBackgroundColor(Color.argb(180, 255, 127, 80));
-                btn_ac.setBackgroundColor(Color.argb(180, 255, 127, 80));
+                color = getResources().getColor(R.color.menu_button_mode_delete);
+                btn_edit.setBackgroundColor(color);
+                btn_ac.setBackgroundColor(color);
                 //Coral#FF7F50
                 btn_edit.setText("delete");
                 aState = 2;
                 Log.v("edit", "aState became 2");
-                btn_lnk.setBackgroundColor(Color.argb(180, 181, 147, 100));
+                color = getResources().getColor(R.color.menu_button_mode_link_off);
+                btn_lnk.setBackgroundColor(color);
                 //Coral#FF7F50
                 btn_lnk.setText("link");
                 bState = 0;
@@ -156,8 +175,10 @@ public class MainActivity extends Activity {
                 break;
             case 2:
                 //Activityモードに遷移
-                btn_edit.setBackgroundColor(Color.argb(180, 181, 147, 100));
-                btn_ac.setBackgroundColor(Color.argb(180, 181, 147, 100));
+                color = getResources().getColor(R.color.menu_button_mode_active);
+                btn_edit.setBackgroundColor(color);
+                color = getResources().getColor(R.color.menu_button_color_light);
+                btn_ac.setBackgroundColor(color);
                 //.setBackgroundColor(Color.argb(int, int, int, int)
                 //BurlyWood#DEB887 180,222,184,135->#b4b59364 180,181,147,100
 
@@ -169,9 +190,11 @@ public class MainActivity extends Activity {
 
     //button2 Changing the State
     public void link(View v) {
+        int color;
         switch (bState) {
             case 0:
-                btn_lnk.setBackgroundColor(Color.argb(180, 125, 180, 181));
+                color = getResources().getColor(R.color.menu_button_mode_link_on);
+                btn_lnk.setBackgroundColor(color);
                 //YellowGreen#9ACD32
                 btn_lnk.setText("link-on");
 
@@ -180,12 +203,15 @@ public class MainActivity extends Activity {
 
                 aState = 0;
                 Log.v("link", "aState became 0");
-                btn_edit.setBackgroundColor(Color.argb(180, 181, 147, 100));
-                btn_ac.setBackgroundColor(Color.argb(180, 181, 147, 100));
+                color = getResources().getColor(R.color.menu_button_mode_active);
+                btn_edit.setBackgroundColor(color);
+                color = getResources().getColor(R.color.menu_button_color_light);
+                btn_ac.setBackgroundColor(color);
                 btn_edit.setText("activate");
                 break;
             case 1:
-                btn_lnk.setBackgroundColor(Color.argb(180, 181, 147, 100));
+                color = getResources().getColor(R.color.menu_button_mode_link_off);
+                btn_lnk.setBackgroundColor(color);
                 //Coral#FF7F50
                 btn_lnk.setText("link");
                 bState = 0;
@@ -228,8 +254,9 @@ public class MainActivity extends Activity {
                 editor.remove("locationY" + KEY_SELECT_POS + n).commit();
                 editor.remove("sticky_cnt" + KEY_INPUT_DATA + n).commit();
             }
-            btn_edit.setBackgroundColor(Color.argb(180, 181, 147, 100));
-            btn_ac.setBackgroundColor(Color.argb(180, 181, 147, 100));
+            int color = getResources().getColor(R.color.menu_button_mode_active);
+            btn_edit.setBackgroundColor(color);
+            btn_ac.setBackgroundColor(color);
             //.setBackgroundColor(Color.argb(int, int, int, int)
             //BurlyWood#DEB887 180,222,184,135->#b4b59364 180,181,147,100
 
@@ -289,7 +316,7 @@ public class MainActivity extends Activity {
 
         // BitmapDrawableにまかせる方法
         Bitmap bitmap2 = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        android.graphics.Canvas cvs = new android.graphics.Canvas(bitmap2);
+        Canvas cvs = new Canvas(bitmap2);
 
         BitmapDrawable drawable = new BitmapDrawable(getResources(), bitmap);
         drawable.setAlpha(alpha);
@@ -532,5 +559,44 @@ public class MainActivity extends Activity {
         }
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://rild.java_conf.gr.jp.bookmarkonlinkablesticky/http/host/path")
+        );
+        AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        Action viewAction = Action.newAction(
+                Action.TYPE_VIEW, // TODO: choose an action type.
+                "Main Page", // TODO: Define a title for the content shown.
+                // TODO: If you have web page content that matches this app activity's content,
+                // make sure this auto-generated web page URL is correct.
+                // Otherwise, set the URL to null.
+                Uri.parse("http://host/path"),
+                // TODO: Make sure this auto-generated app deep link URI is correct.
+                Uri.parse("android-app://rild.java_conf.gr.jp.bookmarkonlinkablesticky/http/host/path")
+        );
+        AppIndex.AppIndexApi.end(client, viewAction);
+        client.disconnect();
+    }
 }
 

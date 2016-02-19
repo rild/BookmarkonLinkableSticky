@@ -13,7 +13,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_menu_height"
-        android:layout_marginBottom="@dimen/bottom_margin"
         android:gravity="bottom"
         android:orientation="vertical">
 
@@ -81,9 +80,8 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/menu_bottom_height"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="#b4b59364"
+                android:background="@color/menu_button_color_light"
                 android:onClick="clear"
                 android:text="clear"
                 android:textSize="12dp" />
@@ -93,9 +91,8 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/menu_bottom_height"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="#b4b59364"
+                android:background="@color/menu_button_color_dark"
                 android:onClick="save"
                 android:text="save"
                 android:textSize="12dp" />
@@ -105,9 +102,8 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/menu_bottom_height"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="#b4b59364"
+                android:background="@color/menu_button_color_light"
                 android:onClick="link"
                 android:text="link"
                 android:textSize="12dp" />
@@ -117,9 +113,8 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/menu_bottom_height"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="#b4b59364"
+                android:background="@color/menu_button_color_dark"
                 android:onClick="edit"
                 android:text="activity"
                 android:textSize="12dp" />

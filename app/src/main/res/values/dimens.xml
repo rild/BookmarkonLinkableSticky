@@ -27,7 +27,9 @@
     <dimen name="middle_margin">8dp</dimen>
 
     <!--main menu button-->
-    <dimen name="menu_bottom_height">20dp</dimen>
+    <dimen name="menu_bottom_height">28dp</dimen>
     <dimen name="menu_bottom_width">44dp</dimen>
+    <dimen name="menu_bottom_text_size">12dp</dimen>
     <dimen name="bottom_margin">8dp</dimen>
+
 </resources>

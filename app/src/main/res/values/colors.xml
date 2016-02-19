@@ -6,6 +6,17 @@
     <color name="sticky_orange">@color/orange</color>
     <color name="sticky_blue">@color/deepskyblue</color>
 
+    <!--menu button color-->
+    <color name="menu_button_color_light">@color/palegoldenrod</color>
+    <color name="menu_button_color_dark">@color/burlywood</color>
+
+    <color name="menu_button_mode_active">@color/menu_button_color_dark</color>
+    <color name="menu_button_mode_edit">@color/yellowgreen</color>
+    <color name="menu_button_mode_delete">@color/coral</color>
+
+    <color name="menu_button_mode_link_off">@color/menu_button_color_light</color>
+    <color name="menu_button_mode_link_on">@color/aquamarine</color>
+    <color name="_menu_button_color">#b4b59364</color>
 
     <color name="black">#FF000000</color>
     <color name="dimgray">#FF696969</color>
